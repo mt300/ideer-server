@@ -58,11 +58,12 @@ router.post('/', authenticate,async (req, res) => {
         res.status(500).json({ error: 'Erro ao registrar o usuário' });
     }
 });
-router.post('/edit/:id', authenticate, async (req, res) => {
+router.put('/edit/:id', authenticate, async (req, res) => {
     const { id } = req.params;
-    const { edit, tags, categoria } = req.body;
+    const { edit, tags, categoria, platform, humor } = req.body;
     try {
-        const response = await IdeaController.editIdea({ id }, { edit, tags, categoria });
+        console.log('edit',edit)
+        const response = await IdeaController.editIdea({ id }, { edit, tags, categoria, platform, humor });
 
         res.status(response.status).send(response.message);
     } catch (error) {
