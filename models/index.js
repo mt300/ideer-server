@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize('ideer', 'postgres', 'password', {
-  host: 'localhost',
+  host: 'ideer-db',
   dialect: 'postgres',
   logging: false, // opcional: desativa logs SQL no console
 });
